@@ -26,6 +26,7 @@ function validalas() {
     //ha megfelel a reg kifejezésnek, akkor hozzáadom az objektum megfelelő kulcsához
     adatObj.nev = FajtaInputElem.value;
     document.querySelector("#nevhiba").innerHTML = "";
+    kuldheto = true;
   } else {
     //ha nem felel meg a kifejezésnek, akkor hibaüzenetet ír ki az oldalra.
     kuldheto = false;
@@ -33,7 +34,7 @@ function validalas() {
     document.querySelector("#nevhiba").innerHTML = hibauzenet;
   }
 
-  console.log(adatObj);
+ 
   if (kuldheto) {
     //ha van hibás input mező, akkor nem töténik meg az elem elküldése
     urlapAdatokKuldese(adatObj);
