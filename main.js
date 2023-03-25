@@ -11,6 +11,7 @@ function urlapAdatokKuldese(adatObj) {
 }
 
 function validalas() {
+  event.preventDefault() //letiltja a submit gomb alapértelmezett működését
   const adatObj = {};
 
   let kuldheto = true;
@@ -21,10 +22,12 @@ function validalas() {
   const NevInputElem = document.querySelector("#nev");
 
   //itt is érdemes ellenőrizni, hogy megfelelő-e az adat:
-  var filter = /^[A-Z][a-zA-Z]{2,}$/; /**ez a reguláris kifejezés, amivel összehasonlítom a beviteli mező értékét */
-  if (filter.test(NevInputElem.value)) { //megnézem, hogy stimmel-e a reg kifejezéssel. true=false
+  var filter =
+    /^[A-Z][a-zA-Z]{2,}$/; /**ez a reguláris kifejezés, amivel összehasonlítom a beviteli mező értékét */
+  if (filter.test(NevInputElem.value)) {
+    //megnézem, hogy stimmel-e a reg kifejezéssel. true=false
     //ha megfelel a reg kifejezésnek, akkor hozzáadom az objektum megfelelő kulcsához
-    adatObj.nev = FajtaInputElem.value;
+    adatObj.nev = NevInputElem.value;
     document.querySelector("#nevhiba").innerHTML = "";
     kuldheto = true;
   } else {
@@ -33,8 +36,7 @@ function validalas() {
     hibauzenet = "A név hiányzik, vagy a formátuma hibás!";
     document.querySelector("#nevhiba").innerHTML = hibauzenet;
   }
-
- 
+console.log(kuldheto)
   if (kuldheto) {
     //ha van hibás input mező, akkor nem töténik meg az elem elküldése
     urlapAdatokKuldese(adatObj);
