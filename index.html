@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>űrlapok validálása</title>
+    <script src="main.js"></script>
+    <style>
+      form span {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>Űrlap címe</legend>
+        <label for="nev">Név:</label>
+        <input
+          type="text"
+          id="nev"
+          name="nev"
+          placeholder="név"
+          required
+          pattern="^[A-Z][a-zA-Z]{2,}$"
+        />
+        <input type="submit" value="Küld" id="kuld" />
+        <span id="nevhiba"></span>
+      </fieldset>
+    </form>
+  </body>
+</html>
